@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageProjectUrl>https://github.com/TheFo2sh/AsyncExtensions</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/TheFo2sh/AsyncExtensions</RepositoryUrl>
+    <Description>This Package contains a helper async builder that allow building AsyncEnumerable from Paged datasource and list of tasks</Description>
   </PropertyGroup>
 
   <ItemGroup>

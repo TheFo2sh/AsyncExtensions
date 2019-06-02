@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("AsyncEnumerableExtensions")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("This package constains extension methods that allow data binding on IAsyncEnumerable by allowing IAsyncEnumerable to be exposed as ISupportIncrementalLoading observable collection")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Ahmed Fouad")]
 [assembly: AssemblyProduct("AsyncEnumerableExtensions")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCopyright("Copyright ©Ahmed Fouad  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
