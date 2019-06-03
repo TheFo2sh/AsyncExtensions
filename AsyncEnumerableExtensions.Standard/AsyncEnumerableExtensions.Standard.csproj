@@ -5,7 +5,7 @@
     <PackageProjectUrl>https://github.com/TheFo2sh/AsyncExtensions</PackageProjectUrl>
     <RepositoryUrl>https://github.com/TheFo2sh/AsyncExtensions</RepositoryUrl>
     <Description>This Package contains a helper async builder that allow building AsyncEnumerable from Paged datasource and list of tasks</Description>
-    <Version>1.5.0</Version>
+    <Version>1.5.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
