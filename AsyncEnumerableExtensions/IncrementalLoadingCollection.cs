@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Async;
 using System.Collections.ObjectModel;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -11,12 +11,12 @@ namespace AsyncEnumerableExtensions
 {
     public class IncrementalLoadingCollection<T> :ObservableCollection<T> , ISupportIncrementalLoading
     {
-        private readonly WeakReference<IAsyncEnumerable<T>> _asyncEnumerable;
+        private readonly IAsyncEnumerable<T>> _asyncEnumerable;
         private IAsyncEnumerator<T> enumerator;
 
         internal IncrementalLoadingCollection(IAsyncEnumerable<T> asyncEnumerable)
         {
-            _asyncEnumerable=new WeakReference<IAsyncEnumerable<T>>(asyncEnumerable,true);
+            _asyncEnumerable=asyncEnumerable;
         }
 
         public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
@@ -26,11 +26,9 @@ namespace AsyncEnumerableExtensions
 
         private async Task<LoadMoreItemsResult> LoadMoreItemsAsync(CancellationToken c, uint count)
         {
-           var result= _asyncEnumerable.TryGetTarget(out var enumerable);
-            if(!result)
-                throw new ObjectDisposedException("Source asyncEnumerable");
+          
             if (enumerator == null)
-                enumerator = await enumerable.GetAsyncEnumeratorAsync(c);
+                enumerator = await _asyncEnumerable.GetAsyncEnumeratorAsync(c);
 
             for (var i = 0; i < count; i++)
             {
