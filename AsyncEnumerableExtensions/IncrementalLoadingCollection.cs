@@ -16,7 +16,7 @@ namespace AsyncEnumerableExtensions
 
         internal IncrementalLoadingCollection(IAsyncEnumerable<T> asyncEnumerable)
         {
-            _asyncEnumerable=new WeakReference<IAsyncEnumerable<T>>(asyncEnumerable);
+            _asyncEnumerable=new WeakReference<IAsyncEnumerable<T>>(asyncEnumerable,true);
         }
 
         public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
