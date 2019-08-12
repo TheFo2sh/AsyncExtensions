@@ -17,7 +17,7 @@ namespace AsyncEnumerableExtensions.Standard
         /// <param name="pagedRequest">the method that return data of a specific page</param>
         /// <param name="itemsSelector">the items selector of the reutrned data</param>
         /// <param name="hasNext">check if there is more pages</param>
-        /// <param name="updatecounter">updeted the loaded items counter</param>
+        /// <param name="updatecounter">update the loaded items counter</param>
         /// <param name="nextpageNumber">return the page number</param>
         /// <param name="nextpageSize">return the page size</param>
         /// <returns></returns>
@@ -48,6 +48,10 @@ namespace AsyncEnumerableExtensions.Standard
 
         }
 
+        public static IIncrementelLoadingCollection<T> ToStandardIIncrementelLoadingCollection<T>(this IAsyncEnumerable<T> asyncEnumerable)
+        {
+            return new StandardIncrementelLoadingCollection<T>(asyncEnumerable);
+        }
         public static IAsyncEnumerable<T> FromTasks<T>(params Task<T>[] tasks)
         {
             var list = tasks.ToList();

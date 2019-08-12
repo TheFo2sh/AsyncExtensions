@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="AsyncEnumerator" Version="2.2.2" />
+    <PackageReference Include="Dynamensions.Input.Commands" Version="2019.3.28.2" />
   </ItemGroup>
 
 </Project>
