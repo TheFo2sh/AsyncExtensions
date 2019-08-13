@@ -48,9 +48,9 @@ namespace AsyncEnumerableExtensions.Standard
 
         }
 
-        public static IIncrementelLoadingCollection<T> ToStandardIIncrementelLoadingCollection<T>(this IAsyncEnumerable<T> asyncEnumerable)
+        public static IIncrementelLoadingCollection<T> ToStandardIIncrementelLoadingCollection<T>(this IAsyncEnumerable<T> asyncEnumerable, int count)
         {
-            return new StandardIncrementelLoadingCollection<T>(asyncEnumerable);
+            return new StandardIncrementelLoadingCollection<T>(asyncEnumerable,count);
         }
         public static IAsyncEnumerable<T> FromTasks<T>(params Task<T>[] tasks)
         {
