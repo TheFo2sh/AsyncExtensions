@@ -27,6 +27,7 @@ namespace AsyncEnumerableExtensions.Standard
             _asyncEnumerable = asyncEnumerable;
             _count = count;
             LoadMoreCommand=new RelayCommand<object>((x)=>LoadMoreItemsAsync(),(x) => HasMoreItems);
+            LoadMoreItemsAsync();
         }
 
        
