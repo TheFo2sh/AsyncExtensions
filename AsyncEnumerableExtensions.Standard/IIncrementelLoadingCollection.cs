@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -16,8 +17,18 @@ namespace AsyncEnumerableExtensions.Standard
     internal class StandardIncrementelLoadingCollection<T> :ObservableCollection<T> , IIncrementelLoadingCollection<T>
     {
         public ICommand LoadMoreCommand { get; }
-        public bool IsBusy { get; private set; }
-
+        
+        private bool _isBusy;
+        public bool IsBusy
+        {
+            get => _isBusy;
+            private set
+            {
+                _isBusy = value;
+                base.OnPropertyChanged(new PropertyChangedEventArgs("IsBusy"));
+            }
+        }
+        
         private readonly IAsyncEnumerable<T> _asyncEnumerable;
         private IAsyncEnumerator<T> enumerator;
         private int _count;
