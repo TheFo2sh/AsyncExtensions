@@ -1,4 +1,5 @@
-﻿using System.Collections.Async;
+﻿
+using Dasync.Collections;
 
 namespace AsyncEnumerableExtensions
 {

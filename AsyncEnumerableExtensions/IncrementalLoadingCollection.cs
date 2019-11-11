@@ -1,5 +1,5 @@
-  using System;
-    using System.Collections.Async;
+using Dasync.Collections;
+using System;
     using System.Collections.ObjectModel;
     using System.Runtime.InteropServices.WindowsRuntime;
     using System.Threading;
@@ -28,19 +28,24 @@
             {
 
                 if (enumerator == null)
-                    enumerator = await _asyncEnumerable.GetAsyncEnumeratorAsync(c);
+                    enumerator =  _asyncEnumerable.GetAsyncEnumerator(c);
 
-                for (var i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
+            {
+                if (c.IsCancellationRequested)
                 {
-                    if (await enumerator.MoveNextAsync(c))
-                        this.Add(enumerator.Current);
-                    else
-                    {
-                        HasMoreItems = false;
-                        break;
-                    }
-
+                    HasMoreItems = false;
+                    break;
                 }
+                else if (await enumerator.MoveNextAsync())
+                    this.Add(enumerator.Current);
+                else
+                {
+                    HasMoreItems = false;
+                    break;
+                }
+
+            }
                 return new LoadMoreItemsResult() { Count = (uint)this.Count };
             }
 

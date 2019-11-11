@@ -5,11 +5,11 @@
     <PackageProjectUrl>https://github.com/TheFo2sh/AsyncExtensions</PackageProjectUrl>
     <RepositoryUrl>https://github.com/TheFo2sh/AsyncExtensions</RepositoryUrl>
     <Description>This Package contains a helper async builder that allow building AsyncEnumerable from Paged datasource and list of tasks</Description>
-    <Version>1.5.3</Version>
+    <Version>1.6.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AsyncEnumerator" Version="2.2.2" />
+    <PackageReference Include="AsyncEnumerator" Version="4.0.1" />
     <PackageReference Include="Dynamensions.Input.Commands" Version="2019.3.28.2" />
   </ItemGroup>
 

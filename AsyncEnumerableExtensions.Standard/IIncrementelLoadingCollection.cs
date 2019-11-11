@@ -1,5 +1,4 @@
-﻿using System.Collections.Async;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading;
 using System.Threading.Tasks;
@@ -36,7 +35,7 @@ namespace AsyncEnumerableExtensions.Standard
         {
             IsBusy = true;
             if (enumerator == null)
-                enumerator = await _asyncEnumerable.GetAsyncEnumeratorAsync();
+                enumerator =  _asyncEnumerable.GetAsyncEnumerator();
 
             for (var i = 0; i < _count; i++)
             {
